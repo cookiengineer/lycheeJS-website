@@ -1,18 +1,40 @@
 
 lychee.define('app.state.FAQ').includes([
 	'lychee.app.State'
-]).tags({
-	platform: 'html'
-}).exports(function(lychee, global, attachments) {
+]).exports(function(lychee, global, attachments) {
 
-	var Composite = function(main) {
+	const _State = lychee.import('lychee.app.State');
 
-		lychee.app.State.call(this, main);
+
+
+	/*
+	 * IMPLEMENTATION
+	 */
+
+	let Composite = function(main) {
+
+		_State.call(this, main);
 
 	};
 
 
 	Composite.prototype = {
+
+		/*
+		 * ENTITY API
+		 */
+
+		serialize: function() {
+
+			let data = _State.prototype.serialize.call(this);
+			data['constructor'] = 'app.state.FAQ';
+
+
+			return data;
+
+		},
+
+
 
 		/*
 		 * CUSTOM API

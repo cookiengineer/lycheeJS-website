@@ -6,10 +6,11 @@
  * BOOTSTRAP
  */
 
-var _fs   = require('fs');
-var _root = __dirname.split('/').slice(0, 3).join('/');
+const _fs      = require('fs');
+const _ROOT    = '/opt/lycheejs';
+const _PROJECT = '/projects/lycheejs-website';
 
-require(_root + '/libraries/lychee/build/node/core.js')(__dirname.split('/').slice(0, -1).join('/'));
+require(_ROOT + '/libraries/lychee/build/node/core.js')(_ROOT + _PROJECT);
 
 
 
@@ -17,15 +18,15 @@ require(_root + '/libraries/lychee/build/node/core.js')(__dirname.split('/').sli
  * IMPLEMENTATION
  */
 
-var core  = _fs.readFileSync(lychee.ROOT.lychee  + '/libraries/lychee/build/html/core.js').toString('utf8');
-var index = _fs.readFileSync(lychee.ROOT.project + '/build/html/main/index.js').toString('utf8');
-var main  = _fs.readFileSync(lychee.ROOT.project + '/index.html').toString('utf8');
-var json  = '{"api":{"files":{}},"build":{"files":{}},"source":{"files":{}}}';
+let core  = _fs.readFileSync(lychee.ROOT.lychee  + '/libraries/lychee/build/html/core.js').toString('utf8');
+let index = _fs.readFileSync(lychee.ROOT.project + '/build/html/main/index.js').toString('utf8');
+let main  = _fs.readFileSync(lychee.ROOT.project + '/index.html').toString('utf8');
+let json  = '{"api":{"files":{}},"build":{"files":{}},"source":{"files":{}}}';
 
 
-var tmp = '';
-var i1  = 0;
-var i2  = 0;
+let tmp = '';
+let i1  = 0;
+let i2  = 0;
 
 
 tmp  = '<!-- BOOTSTRAP -->\n';
@@ -52,6 +53,12 @@ tmp += '\t}, 200);\n\n';
 i1   = main.indexOf('<script>\n');
 i2   = main.indexOf('</script>', i1);
 main = main.substr(0, i1) + tmp + main.substr(i2);
+
+
+core  = core.split('\tconst').join('\tvar');
+core  = core.split('\tlet').join('\tvar');
+index = index.split('\\tconst').join('\\tvar');
+index = index.split('\\tlet').join('\\tvar');
 
 
 _fs.writeFileSync(lychee.ROOT.project + '/build/core.js',    core);

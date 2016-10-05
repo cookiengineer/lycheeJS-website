@@ -3,23 +3,23 @@
 
 LYCHEEJS_ROOT="/opt/lycheejs";
 LYCHEEJS_BRANCH="development";
-GIT=`which git`;
+PACMAN=`which pacman`;
 
 
-if [ "$USER" != "root" ]; then
 
-	echo "You are not root.";
-	echo "Use \"sudo $0\"";
+if [ "$PACMAN" == "" ]; then
+
+	echo "This is not Arch Linux.";
+	echo "Use either archlinux.org or archlinuxarm.org";
 
 	exit 1;
 
 fi;
 
+if [ "$USER" != "root" ]; then
 
-
-if [ "$GIT" == "" ]; then
-
-	echo "Please install git and execute this installer again.";
+	echo "You are not root.";
+	echo "Use \"sudo $0\"";
 
 	exit 1;
 
@@ -43,6 +43,16 @@ else
 	exit 1;
 fi;
 
+
+
+echo "";
+echo "Installing/Updating Dependencies ...";
+
+	pacman -Sy --noconfirm;
+	pacman -Su --noconfirm;
+	pacman -S --noconfirm --needed bash sudo binutils coreutils sed zip unzip tar curl git;
+
+echo "Done.";
 
 
 echo "";
@@ -102,7 +112,9 @@ echo "Integrating lychee.js Engine ...";
 
 	cd $LYCHEEJS_ROOT;
 
-	./bin/maintenance/do-install.sh;
+	ln -s "$LYCHEEJS_ROOT/bin/fertilizer.sh" /usr/local/bin/lycheejs-fertilizer;
+	ln -s "$LYCHEEJS_ROOT/bin/harvester.sh" /usr/local/bin/lycheejs-harvester;
+	ln -s "$LYCHEEJS_ROOT/bin/helper.sh" /usr/local/bin/lycheejs-helper;
 
 echo "Done."
 
@@ -150,15 +162,41 @@ echo "Done.";
 
 
 echo "";
-echo "";
-echo "";
-echo "Now you need to start the lychee.js Harvester.";
+echo "Cleaning Package Cache ...";
 
-	echo "";
-	echo "1. Modify $LYCHEEJS_ROOT/bin/harvester/development.json";
-	echo "2. Start lychee.js Harvester with this command:";
-	echo "";
-	echo "cd $LYCHEEJS_ROOT;";
-	echo "lycheejs-harvester start development;";
-	echo "";
+	pacman -Scc --noconfirm;
+	rm /var/cache/pacman/pkg/*.pkg.tar.xz;
+
+echo "Done.";
+
+
+echo "";
+echo "Integrating systemd Service ...";
+
+read -r -d '\n' SYSTEMD_SERVICE << ENDOFFILE
+[Unit]
+Description=lychee.js Harvester
+
+[Service]
+ExecStart=/bin/bash /opt/lycheejs/bin/harvester.sh start development
+Restart=always
+RestartSec=30
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=lycheejs-harvester
+#User=lycheejs
+#Group=lycheejs
+
+[Install]
+WantedBy=multi-user.target
+
+ENDOFFILE
+
+
+	echo "$SYSTEMD_SERVICE" > /etc/systemd/system/lycheejs-harvester.service;
+
+	systemctl enable lycheejs-harvester.service;
+	systemctl start lycheejs-harvester.service;
+
+echo "Done.";
 

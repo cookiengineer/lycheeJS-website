@@ -1,7 +1,7 @@
 
 lychee.define('app.state.Examples').requires([
-	'lychee.data.HTML',
-	'lychee.data.MD'
+	'app.data.HTML',
+	'app.data.MD'
 ]).includes([
 	'lychee.app.State',
 	'lychee.event.Emitter'
@@ -9,10 +9,14 @@ lychee.define('app.state.Examples').requires([
 	platform: 'html'
 }).exports(function(lychee, global, attachments) {
 
-	var _README  = {
+	const _HTML    = lychee.import('app.data.HTML');
+	const _MD      = lychee.import('app.data.MD');
+	const _Emitter = lychee.import('lychee.event.Emitter');
+	const _State   = lychee.import('lychee.app.State');
+	const _README  = {
 		'default': '<p>No instructions given.</p>'
 	};
-	var _RELEASE = [];
+	const _RELEASE = [];
 
 
 
@@ -20,7 +24,7 @@ lychee.define('app.state.Examples').requires([
 	 * HELPERS
 	 */
 
-	var _replace_template = function(template) {
+	const _replace_template = function(template) {
 
 		template = template.replace(/\.\/asset\//g, './download/example/asset/');
 
@@ -28,25 +32,25 @@ lychee.define('app.state.Examples').requires([
 
 	};
 
-	var _ui_update = function() {
+	const _ui_update = function() {
 
 		_ui_render_selection.call(this);
 		_ui_render_details.call(this);
 
 	};
 
-	var _ui_render_selection = function() {
+	const _ui_render_selection = function() {
 
 		if (_RELEASE.length > 0) {
 
-			var code = '';
-			var id   = (this.__example !== null ? this.__example.identifier : 'boilerplate');
+			let code = '';
+			let id   = (this.__example !== null ? this.__example.identifier : 'boilerplate');
 
 
 			code = _RELEASE.map(function(example, index) {
 
-				var checked = id === example.identifier;
-				var chunk   = '';
+				let checked = id === example.identifier;
+				let chunk   = '';
 
 				chunk += '<li>';
 				chunk += '<input id="examples-selection-content-' + index + '" name="identifier" type="radio" value="' + example.identifier + '"' + (checked ? ' checked' : '') + '>';
@@ -68,19 +72,19 @@ lychee.define('app.state.Examples').requires([
 
 	};
 
-	var _ui_render_details = function() {
+	const _ui_render_details = function() {
 
-		var that = this;
+		let that = this;
 
 
-		var example = this.__example || null;
+		let example = this.__example || null;
 		if (example !== null) {
 
-			var readme = _README[example.readme] || null;
+			let readme = _README[example.readme] || null;
 			if (readme !== null) {
 
-				var code = '';
-				var size = parseInt(example.size, 10);
+				let code = '';
+				let size = parseInt(example.size, 10);
 				if (!isNaN(size)) {
 					size = (size / 1000 / 1000).toFixed(2) + ' MB';
 				}
@@ -92,7 +96,7 @@ lychee.define('app.state.Examples').requires([
 				code += '<tr><th>Fertilizer</th><th>Target</th><th>Download</th></tr>';
 				code += '<tr>' + example.packages.map(function(pkg) {
 
-					var chunk = '';
+					let chunk = '';
 
 					chunk += '<td>' + pkg.fertilizer   + '</td>';
 					chunk += '<td>' + pkg.target       + ' (' + pkg.architecture + ')</td>';
@@ -110,7 +114,7 @@ lychee.define('app.state.Examples').requires([
 				readme = new Stuff('./download/example/' + example.readme);
 				readme.onload = function() {
 
-					var data = lychee.data.HTML.encode(lychee.data.MD.decode(this.buffer));
+					let data = _HTML.encode(_MD.decode(this.buffer));
 					if (data !== null) {
 						_README[example.readme] = data;
 					} else {
@@ -139,10 +143,10 @@ lychee.define('app.state.Examples').requires([
 	 * IMPLEMENTATION
 	 */
 
-	var Composite = function(main) {
+	let Composite = function(main) {
 
-		lychee.app.State.call(this, main);
-		lychee.event.Emitter.call(this);
+		_State.call(this, main);
+		_Emitter.call(this);
 
 
 		this.__example = null;
@@ -157,10 +161,10 @@ lychee.define('app.state.Examples').requires([
 
 			if (id === 'examples-selection') {
 
-				var identifier = settings.identifier || null;
+				let identifier = settings.identifier || null;
 				if (identifier !== null) {
 
-					var filtered = _RELEASE.filter(function(example) {
+					let filtered = _RELEASE.filter(function(example) {
 						return example.identifier === identifier;
 					});
 
@@ -181,7 +185,7 @@ lychee.define('app.state.Examples').requires([
 
 		this.bind('github', function() {
 
-			var example = this.__example || null;
+			let example = this.__example || null;
 			if (example !== null) {
 				global.open('https://github.com/Artificial-Engineering/lycheejs/tree/development/projects/' + example.identifier + '/');
 			}
@@ -194,6 +198,22 @@ lychee.define('app.state.Examples').requires([
 	Composite.prototype = {
 
 		/*
+		 * ENTITY API
+		 */
+
+		serialize: function() {
+
+			let data = _State.prototype.serialize.call(this);
+			data['constructor'] = 'app.state.Examples';
+
+
+			return data;
+
+		},
+
+
+
+		/*
 		 * CUSTOM API
 		 */
 
@@ -203,12 +223,12 @@ lychee.define('app.state.Examples').requires([
 
 		enter: function(oncomplete) {
 
-			var that   = this;
-			var config = new Config('./download/example/release.json');
+			let that   = this;
+			let config = new Config('./download/example/release.json');
 
 			config.onload = function() {
 
-				var buffer = this.buffer;
+				let buffer = this.buffer;
 				if (buffer !== null) {
 
 					_RELEASE = Object.values(buffer.examples);

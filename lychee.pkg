@@ -32,7 +32,18 @@
 				"js",
 				"json"
 			],
+			"data": {
+				"HTML": [
+					"js"
+				],
+				"MD": [
+					"js"
+				]
+			},
 			"state": {
+				"About": [
+					"js"
+				],
 				"Examples": [
 					"js"
 				],
@@ -45,10 +56,10 @@
 				"Install": [
 					"js"
 				],
-				"Tutorials": [
+				"Vision": [
 					"js"
 				],
-				"Vision": [
+				"Workflow": [
 					"js"
 				]
 			}

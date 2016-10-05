@@ -1,5 +1,5 @@
 
-lychee.define('app.state.Features').includes([
+lychee.define('app.state.About').includes([
 	'lychee.app.State'
 ]).exports(function(lychee, global, attachments) {
 
@@ -27,7 +27,7 @@ lychee.define('app.state.Features').includes([
 		serialize: function() {
 
 			let data = _State.prototype.serialize.call(this);
-			data['constructor'] = 'app.state.Features';
+			data['constructor'] = 'app.state.About';
 
 
 			return data;

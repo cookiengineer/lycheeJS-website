@@ -43,13 +43,15 @@
 .ico-feature:before {
   content: "\63";
 }
+.ico-vision:before,
 .ico-branch:before {
   content: "\64";
 }
 .ico-tutorial:before {
   content: "\65";
 }
-.ico-demo:before {
+.ico-demo:before,
+.ico-workflow:before {
   content: "\66";
 }
 .ico-refresh:before {
@@ -779,24 +781,26 @@ article code.hljs {
 	border-radius: 3px;
 	vertical-align: middle;
 }
+#about,
 #vision,
 #features,
+#workflow,
 #install,
 #faq {
 	display: block;
 }
-#vision-logo {
+#about-logo {
 	display: block;
 	margin: 128px auto;
 	text-align: center;
 }
-#vision-logo h1 {
+#about-logo h1 {
 	display: inline-block;
 	vertical-align: middle;
 	margin: 0px 16px;
 	line-height: 0px;
 }
-#vision-logo h2 {
+#about-logo h2 {
 	display: inline-block;
 	height: 128px;
 	vertical-align: middle;
@@ -808,10 +812,10 @@ article code.hljs {
 	font-weight: normal;
 	line-height: 128px;
 }
-#vision-logo h2 span {
+#about-logo h2 span {
 	color: #d0494b;
 }
-#vision-logo h3 {
+#about-logo h3 {
 	display: block;
 	margin: 0px auto;
 	padding: 0px;
@@ -819,16 +823,17 @@ article code.hljs {
 	font-size: 24px;
 	font-weight: normal;
 }
-#vision-logo h4 {
+#about-logo h4 {
 	display: block;
-	margin: 16px auto;
+	margin: 16px auto 32px auto;
 	color: #efefef;
 	font-family: 'museo-sans-300';
 	font-size: 18.1px;
 	font-weight: normal;
 }
+#about article,
 #vision article,
-#features article,
+#workflow article,
 #install article,
 #faq article {
 	display: block;
@@ -839,7 +844,7 @@ article code.hljs {
 	border: 1px solid transparent;
 }
 #vision article svg,
-#features article svg,
+#workflow article svg,
 #install article svg,
 #faq article svg {
 	display: block;
@@ -847,114 +852,168 @@ article code.hljs {
 	margin: 32px;
 }
 #vision svg text tspan,
-#features svg text tspan,
+#workflow svg text tspan,
 #install svg text tspan {
 	font-family: 'museo-sans-300';
 	font-size: 20px;
 }
+#about article p,
 #vision article p,
-#features article p,
+#workflow article p,
 #install article p,
 #faq article p {
 	text-align: justify;
 }
+#about article p,
 #vision article p,
 #faq article p {
 	margin: 32px;
 }
+#about article p.center,
 #vision article p.center,
-#features article p.center,
+#workflow article p.center,
 #install article p.center {
 	text-align: center;
 }
+#about article p > a.button,
+#about article p > button,
+#vision article p > a.button,
 #vision article p > button {
 	display: inline-block;
 	margin: 16px;
 }
 
-#features > article:first-child,
+#features > div:first-child {
+	margin-top: 96px;
+}
+
+main > section#features article,
+main > section#features figure {
+	display: inline-block;
+	position: static;
+	margin: 0px;
+	vertical-align: top;
+}
+
+main > section#features article:nth-child(1),
+main > section#features article:nth-child(2),
+main > section#features article:nth-child(3),
+main > section#features article:nth-child(4),
+main > section#features article {
+	min-width: 256px;
+	max-width: calc(50% - 64px);
+	width: auto;
+	height: auto;
+	margin: 32px;
+	padding: 0px 0px 16px 0px;
+}
+
+main > section#features figure {
+	margin: 32px;
+	width: calc(50% - 64px);
+	overflow: auto;
+	float: right;
+}
+
+#features > div:after {
+	display: block;
+	visibility: hidden;
+	font-size: 0px;
+	content: " ";
+	clear: both;
+	height: 0px;
+}
+
+#features figure > pre {
+	margin: 0px;
+}
+
+
+#workflow > article:first-child,
 #install > article:first-child {
 	margin: 128px auto 32px auto;
 }
-#features > article:last-child,
+#workflow > article:last-child,
 #install > article:last-child {
 	margin: 32px auto 128px auto;
 }
-#features > div article {
+#workflow > div article {
 	margin: 32px auto;
 }
-#features > div {
+#workflow > div {
 	display: block;
 	min-width: 600px;
 	max-width: 800px;
 	margin: 32px auto;
 }
-#features > div h3 {
+#workflow > div h3 {
 	font-family: 'museo-sans-300';
 	font-size: 32px;
 	font-weight: normal;
 	text-align: center;
 }
-#features > div h3.left,
-#features > div h3.right,
-#features > div p.left,
-#features > div p.right {
+#workflow > div h3.left,
+#workflow > div h3.right,
+#workflow > div p.left,
+#workflow > div p.right {
 	display: inline-block;
 	width: calc(50% - 16px);
 	height: 5em;
 	margin: 1em 0px;
 }
-#features > div p.left,
-#features > div p.right {
+#workflow > div p.left,
+#workflow > div p.right {
 	text-align: justify;
 	margin: 0px 0px 32px 0px;
 }
-#features > div article.center {
+#workflow > div article.center {
 	display: block;
 }
-#features > div article.left,
-#features > div article.right {
+#workflow > div article.left,
+#workflow > div article.right {
 	display: inline-block;
 	width: calc(50% - 16px);
 	min-height: 340px;
 	margin: 0px 0px 32px 0px;
 	background: #363f3e;
 }
-#features > div article img {
+#workflow > div article img {
 	display: block;
 	margin: 32px auto;
 	outline: none;
 	border: 0px none;
 }
-#features > svg {
+#workflow > svg {
 	display: block;
 	margin: 0px auto;
 }
 
-#features h3.left,
-#features p.left,
-#features article.left {
+#workflow h3.left,
+#workflow p.left,
+#workflow article.left {
 	float: left;
 }
-#features h3.right,
-#features p.right,
-#features article.right {
+#workflow h3.right,
+#workflow p.right,
+#workflow article.right {
 	float: right;
 }
 
-#features > div:after,
-#features > div article.clear:after {
+#workflow > div:after,
+#workflow > div article.clear:after {
 	display: block;
 	content: "";
 	clear: both;
 }
 
+#about article ul,
 #vision article ul,
 #faq article ul {
 	margin: 32px;
 	padding: 0px 16px 0px 16px;
 }
 
+#about article ul li,
 #vision article ul li,
 #faq article ul li {
 	margin: 0px 0px;
@@ -980,9 +1039,12 @@ article code.hljs {
 	width: auto;
 	margin: 0px;
 }
-#bundles article:nth-child(1) p button, 
-#examples article:nth-child(1) p button, 
-#tutorials article:nth-child(1) p button{
+#bundles article:nth-child(1) p a.button,
+#bundles article:nth-child(1) p button,
+#examples article:nth-child(1) p a.button,
+#examples article:nth-child(1) p button,
+#tutorials article:nth-child(1) p a.button,
+#tutorials article:nth-child(1) p button {
 	min-width: 144px;
 }
 #bundles article:nth-child(2),
@@ -1059,48 +1121,51 @@ article code.hljs {
 	menu > b > span:after {
 		width: 24px;
 	}
-	#features > article,
-	#features article.center,
-	#features > div {
+	#workflow > article,
+	#workflow article.center,
+	#workflow > div {
 		min-width: initial;
 		max-width: initial;
 		width: auto;
 	}
-	#features > div h3.left,
-	#features > div h3.right {
+	#workflow > div h3.left,
+	#workflow > div h3.right {
 		height: 1em;
 		word-break: break-all;
 		overflow: hidden;
 	}
-	#features > div h3.left,
-	#features > div h3.right,
-	#features > div p.left,
-	#features > div p.right,
-	#features > div article.left,
-	#features > div article.right {
+	#workflow > div h3.left,
+	#workflow > div h3.right,
+	#workflow > div p.left,
+	#workflow > div p.right,
+	#workflow > div article.left,
+	#workflow > div article.right {
 		width: calc(50% - 2px);
 		margin-left: 0px;
 		margin-right: 0px;
 		border: 0px solid transparent;
 	}
+	#about article,
 	#vision article,
 	#install article,
 	#faq article {
 		width: auto;
 	}
 	#vision article svg,
-	#features article svg,
-	#features > svg,
-	#features > div article img,
+	#workflow article svg,
+	#workflow > svg,
+	#workflow > div article img,
 	#install article svg,
 	#faq article svg {
 		width: 100%;
 		margin: 0px;
 	}
+	#about article div,
+	#about article p,
 	#vision article div,
 	#vision article p,
-	#features article div,
-	#features article p,
+	#workflow article div,
+	#workflow article p,
 	#install article div,
 	#install article p,
 	#faq article div,
@@ -1140,7 +1205,7 @@ article code.hljs {
 }
 
 @media (max-height: 360px) {
-	#vision-logo {
+	#about-logo {
 		margin: 0px auto;
 	}
 

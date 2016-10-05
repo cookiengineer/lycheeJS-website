@@ -29,32 +29,46 @@
 <body>
 <menu class="active">
 	<b><span></span></b>
-	<li class="active" onclick="ui.changeState('vision')">Vision</li>
+	<li class="active" onclick="ui.changeState('about')">About</li>
+	<li onclick="ui.changeState('vision')">Vision</li>
 	<li onclick="ui.changeState('features')">Features</li>
+	<li onclick="ui.changeState('workflow')">Workflow</li>
 	<li onclick="ui.changeState('examples')">Examples</li>
 	<li onclick="ui.changeState('install')">Install</li>
 	<li onclick="ui.changeState('faq')">FAQ</li>
 	<aside>
 		<button disabled class="ico-demo" title="Demo" onclick="window.open('http://harvester.artificial.engineering:8080');"></button>
+		<a class="button ico-branch" title="Guide" href="https://github.com/Artificial-Engineering/lycheejs-guide" target="_blank"></a>
 		<a class="button ico-github" title="GitHub" href="https://github.com/Artificial-Engineering/lycheejs" target="_blank"></a>
-		<button class="ico-refresh" title="Refresh" onclick="window.location.href='./index.html'"></button>
 	</aside>
 </menu>
 <main>
 
-	<section id="vision" class="center active">
-		<header id="vision-logo">
+	<section id="about" class="center active">
+		<header id="about-logo">
 			<h1><img alt="Logo" src="./asset/desktop.svg" width="128" height="128"></h1>
 			<h2>lychee<span>js</span></h2>
 			<h3>Next-Gen Isomorphic Application Engine</h3>
-			<!-- <h4>Automating Software Design and Engineering since 2012</h4> -->
 			<h4>Self-Building and Self-Learning Javascript Applications</h4>
+			<a class="github-button" href="https://github.com/Artificial-Engineering/lycheejs" data-icon="octicon-star" data-style="mega" data-count-href="/Artificial-Engineering/lycheejs/stargazers" data-count-api="/repos/Artificial-Engineering/lycheejs#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star Artificial-Engineering/lycheejs on GitHub">Star</a>
 		</header>
 		<article>
 			<h3>lychee.js Quick Install</h3>
+			<p>
+				This will install the lychee.js Engine on your machine.
+				For further details, please read the <a href="#!install">Install</a>
+				section.
+			</p>
 			<pre><code># This will install lychee.js into /opt/lycheejs
 
 sudo bash -c "$(curl -fsSL https://lychee.js.org/install.sh)";</code></pre>
+			<p>
+				It is also possible to install lychee.js Engine on a
+				BOT machine (running Arch Linux).
+			</p>
+			<pre><code># This will install and integrate lychee.js into /opt/lycheejs
+
+sudo bash -c "$(curl -fsSL https://lychee.js.org/install-bot.sh)";</code></pre>
 		</article>
 		<article>
 			<h3>WTF is lychee.js?</h3>
@@ -68,18 +82,67 @@ sudo bash -c "$(curl -fsSL https://lychee.js.org/install.sh)";</code></pre>
 				That's the shortest answer.
 			</p>
 			<p>
-				The concept behind is very advanced and unique. lychee.js allows
-				full Isomorphic Applications among all Platforms and all Applications
-				can improve and rewrite themselves in a speed and perfection no
-				human counterpart ever could match.
+				The lychee.js Engine allows full Isomorphic Applications across
+				literally every Runtime or Platform that supports ES5+.
 			</p>
 			<p>
-				The (soon to come) lychee.js Garden is the invention of Shared
-				Coding and Code as a Service, contributed to by many self-improving
-				Artificial Intelligences that learn from each and every lychee.js
-				Project; and usable by everyone.
+				All Projects and Libraries can improve and rewrite themselves,
+				analyse, track, identify and fix bugs automatically in a speed and
+				perfection no human could ever match.
 			</p>
 		</article>
+		<article>
+			<h3>Is lychee.js for me?</h3>
+			<p>
+				The target audience of lychee.js are Application developers that
+				want to have focus on reusability, deployment and automation.
+			</p>
+			<p>
+				lychee.js is a way of building things, not something you want to
+				only use as a library. Automation through convention is our
+				Prime Directive. The Omega Directive is Never Repeat Yourself.
+			</p>
+			<p>
+				If you want a 100% automated build pipeline and an AI that helps
+				you and that actively writes code for you, lychee.js is the way
+				to go.
+			</p>
+			<p>
+				If you want an application that runs on an Arduino, an Android
+				device or the Microsoft XBoX and a space satellite, lychee.js
+				is the way to go. (Yes, the AI in lychee.js helps to navigate
+				satellites already).
+			</p>
+			<p>
+				If you want Peer-to-Peer Networking, a Scene Graph, UI components,
+				AI components, an Isomorphic App Boilerplate, reusable Entities
+				and Components, standalone Implementations (that can be reused
+				literally everywhere), lychee.js is the way to go.
+			</p>
+		</article>
+		<article>
+			<h3>How to start with lychee.js?</h3>
+			<p>
+				The <a target="_blank" href="https://github.com/Artificial-Engineering/lycheejs-guide">lychee.js Guide</a>
+				has a Quickstart Guide, Tutorials, Concept Explanations, Architecture
+				Charts and explains literally everything around the Engine, Projects
+				and Libraries.
+			</p>
+			<p>
+				When talking about lychee.js, we differ between the
+				<a target="_blank" href="https://github.com/Artificial-Engineering/lycheejs">lychee.js Engine</a>
+				(which is some kind of Application SDK) and the
+				<a target="_blank" href="https://github.com/Artificial-Engineering/lycheejs-library">lychee.js Library</a>
+				(that can be used in your existing projects).
+			</p>
+			<p class="center">
+				<button class="ico-vision" onclick="ui.changeState('vision');">vision</button>
+				<button class="ico-feature" onclick="ui.changeState('features');">features</button>
+			</p>
+		</article>
+	</section>
+
+	<section id="vision">
 		<article>
 			<h3>The Idea</h3>
 			<p>
@@ -388,14 +451,271 @@ sudo bash -c "$(curl -fsSL https://lychee.js.org/install.sh)";</code></pre>
 			</p>
 			<p class="center">
 				<button class="ico-feature" onclick="ui.changeState('features');">Features</button>
-				<button class="ico-demo" onclick="ui.changeState('examples');">Examples</button>
+				<button class="ico-workflow" onclick="ui.changeState('workflow');">Workflow</button>
 			</p>
 		</article>
 	</section>
 
 	<section id="features">
+
+		<div>
 		<article>
-			<h3>lychee.js Features</h3>
+			<h3>Definition System</h3>
+			<p>
+				The lychee.js Definition System allows
+				Feature Detection and Feature Prediction
+				to allow cross-platform Definitions that
+				can be replaced with their platform-specific
+				counterpart.
+			</p>
+			<p>
+				The reusable Composite-Pattern idea is
+				embraced, though not a limitation. All
+				implementations can be reused literally
+				everywhere: On each platform, in each runtime,
+				in each application, in each sandbox.
+			</p>
+		</article>
+
+		<figure>
+			<pre><code class="javascript">lychee.define('my.Definition').supports((lychee, global) =&gt; {
+
+	return typeof global.CanvasRenderingContext !== 'undefined';
+
+}).includes([
+	'lychee.event.Emitter'
+]).exports((lychee, global, attachments) =&gt; {
+
+	const _Emitter = lychee.import('lychee.event.Emitter');
+	const _Context = global.CanvasRenderingContext;
+
+
+	let Composite = (data) =&gt; {
+
+		let settings = Object.assign({}, data);
+
+		_Emitter.call(this);
+
+	};
+
+	Composite.prototype = {
+		log: () =&gt; { console.log(this) }
+	};
+
+	return Composite;
+
+});</code></pre>
+		</figure>
+		</div>
+
+		<div>
+		<article>
+			<h3>Definition Attachments</h3>
+			<p>
+				The lychee.js Definition System
+				embraces the Entity/Component idea.
+				All Definitions can have Assets
+				attached to their Implementations.
+			</p>
+			<p>
+				Duplicated Assets are automatically
+				compiled down, shrinked, compressed
+				and removed if unnecessary.
+			</p>
+		</article>
+
+		<figure>
+			<pre><code class="javascript">lychee.define('my.Definition').includes([
+	'lychee.event.Emitter'
+]).exports((lychee, global, attachments) =&gt; {
+
+	// Asset Types:
+	// Buffer, Config, Font, Music, Sound, Texture, Stuff
+
+	const _TEXTURE = attachments["png"];
+	const _MUSIC   = attachments["msc"];
+	const _Emitter = lychee.import('lychee.event.Emitter');
+
+
+	let Composite = (data) =&gt; {
+
+		let settings = Object.assign({}, data);
+
+		_Emitter.call(this);
+
+	};
+
+	Composite.prototype = {
+		log: () =&gt; { console.log(this, _TEXTURE, _MUSIC) }
+	};
+
+	return Composite;
+
+});</code></pre>
+		</figure>
+		</div>
+
+		<div>
+		<article>
+			<h3>Definition Serialization</h3>
+			<p>
+				All lychee.js Definitions are serializable
+				and can be deserialized on every other
+				platform or (peer-to-peer) Application.
+			</p>
+			<p>
+				This allows completely automated Analysis,
+				Debugging, Tracking or even Bugfixing
+				through our Artificial Intelligence.
+			</p>
+		</article>
+
+		<figure>
+			<pre><code class="javascript">// Clone an Application, its Graph data (and Timeline data)
+
+let sandbox  = lychee.environment.global;
+let blob     = sandbox.MAIN.serialize();
+let instance = lychee.deserialize(blob);
+
+// true, a 1:1 clone of the whole App
+instance instanceof app.Main;</code></pre>
+		</figure>
+		</div>
+
+		<div>
+		<article>
+			<h3>Environment Sandboxing</h3>
+			<p>
+				The lychee.js Environment embraces the
+				intelligent sandboxing idea, thus allowing
+				to completely isolate Applications to run
+				in parallel or being integrated by a third-party
+				Application without any influence.
+			</p>
+			<p>
+				Want to compare a Simulation Environment
+				with a Graphical Environment? No problem.
+			</p>
+		</article>
+
+		<figure>
+			<pre><code class="javascript">// Compare an Application both with and without a Renderer
+
+lychee.pkginit('html/main', {
+	debug:   false,
+	sandbox: true
+}, {
+	renderer: null
+});
+
+lychee.pkginit('html/main', {
+	debug:   false,
+	sandbox: true
+}, {
+	renderer: {
+		width:  800,
+		height: 600
+	}
+});</code></pre>
+		</figure>
+		</div>
+
+		<div>
+		<article>
+			<h3>Platform Adapters</h3>
+			<p>
+				The lychee.js Definition System has
+				multiple plug-and-play Platform Adapters
+				and an intelligent tagging system to
+				describe an Environment build.
+			</p>
+			<p>
+				Want to go OpenGL on Android, VR for 3D or
+				SDL for 2D? No problem.
+			</p>
+		</article>
+
+		<figure>
+			<pre><code class="javascript">lychee.define('my.Renderer').tags({
+	platform:  'html',
+	rendering: '2d'
+}).supports((lychee, global) =&gt; {
+
+	return typeof global.CanvasRenderingContext !== 'undefined';
+
+}).includes([
+	'lychee.event.Emitter'
+]).exports((lychee, global, attachments) =&gt; {
+
+	const _Emitter = lychee.import('lychee.event.Emitter');
+	const _Context = global.CanvasRenderingContext;
+
+
+	let Composite = (data) =&gt; {
+
+		let settings = Object.assign({}, data);
+
+		_Emitter.call(this);
+
+	};
+
+	Composite.prototype = {
+		log: () =&gt; { console.log(this) }
+	};
+
+	return Composite;
+
+});</code></pre>
+		</figure>
+		</div>
+
+		<div>
+		<article>
+			<h3>Fertilizers</h3>
+			<p>
+				Every lychee.js Platform Adapter
+				and the platform tags are made to
+				integrate your Application into
+				further Runtimes with zero code
+				overhead.
+			</p>
+			<p>
+				By default, any lychee.js Project
+				or Library can run on more than 50
+				platforms and architectures
+				(including electron, nw.js, node.js,
+				node-sdl, jerryscript, Android,
+				Blackberry, iOS, FirefoxOS, Windows,
+				OSX, BSD and GNU/Linux Desktops).
+			</p>
+			<p>
+				Building and Compiling for a new
+				platform is as easy as 1,2,3.
+				Zero configuration, zero maintenance
+				overhead.
+			</p>
+		</article>
+
+		<figure>
+			<pre><code class="javascript">// Build for all Platforms
+
+lycheejs-fertilizer auto /projects/boilerplate
+
+// Build for a single Platform
+
+lycheejs-fertilizer html/main      /projects/boilerplate
+lycheejs-fertilizer html-nwjs/main /projects/boilerplate
+lycheejs-fertilizer node/main      /projects/boilerplate
+lycheejs-fertilizer node-sdl/main  /projects/boilerplate
+</code></pre>
+		</figure>
+		</div>
+
+	</section>
+
+	<section id="workflow">
+		<article>
+			<h3>lychee.js Workflow</h3>
 			<p>
 				The lychee.js Engine consists of several
 				Software Bots that allow the easier creation
@@ -674,11 +994,12 @@ sudo bash -c "$(curl -fsSL https://lychee.js.org/install.sh)";</code></pre>
 			</p>
 			<br>
 			<p class="center">
-				<button class="ico-download" onclick="MAIN.state.trigger('download', [ 'ubuntu', 'ubuntu.deb' ]);">Ubuntu</button>
+
+				<a class="button ico-download" target="_blank" rel="nofollow noopener" href="https://github.com/Artificial-Engineering/lycheejs-bundle/releases/download/2016-Q3/lycheejs-2016-Q3-ubuntu.deb" onclick="MAIN.state.trigger('download', [ 'ubuntu', 'ubuntu.deb' ]); return false;">Ubuntu</a>
 				&nbsp;
-				<button class="ico-download" onclick="MAIN.state.trigger('download', [ 'generic', 'generic.zip' ]);">Generic</button>
+				<a class="button ico-download" target="_blank" rel="nofollow noopener" href="https://github.com/Artificial-Engineering/lycheejs-bundle/releases/download/2016-Q3/lycheejs-2016-Q3-generic.zip" onclick="MAIN.state.trigger('download', [ 'generic', 'generic.zip' ]); return false;">Generic</a>
 				&nbsp;
-				<button class="ico-download" onclick="MAIN.state.trigger('download', [ 'generic-mini', 'generic-mini.zip' ]);">Generic Mini</button>
+				<a class="button ico-download" target="_blank" rel="nofollow noopener" href="https://github.com/Artificial-Engineering/lycheejs-bundle/releases/download/2016-Q3/lycheejs-2016-Q3-generic-mini.zip" onclick="MAIN.state.trigger('download', [ 'generic-mini', 'generic-mini.zip' ]); return false;">Generic Mini</a>
 			</p>
 			<br>
 			<p>
@@ -798,5 +1119,6 @@ sudo rm -rf /opt/lycheejs;</code></pre>
 
 })(lychee, typeof global !== 'undefined' ? global : this);
 </script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>

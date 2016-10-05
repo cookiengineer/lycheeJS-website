@@ -17,6 +17,7 @@ if [ -e "$LYCHEEJS_HELPER" ]; then
 	mkdir -p "$PROJECT_ROOT/build/libraries/lychee";
 	cp "$PROJECT_ROOT/build/lychee.pkg" "$PROJECT_ROOT/build/libraries/lychee/lychee.pkg";
 	cp "$PROJECT_ROOT/install.sh" "$PROJECT_ROOT/build/install.sh";
+	cp "$PROJECT_ROOT/install-bot.sh" "$PROJECT_ROOT/build/install-bot.sh";
 	cp "$PROJECT_ROOT/favicon.ico" "$PROJECT_ROOT/build/favicon.ico";
 	cp "$PROJECT_ROOT/miracle.xml" "$PROJECT_ROOT/build/miracle.xml";
 	cp "$PROJECT_ROOT/age.xml" "$PROJECT_ROOT/build/age.xml";
