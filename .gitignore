@@ -1,6 +1,4 @@
 
 /build
-
-/download/bundle/*
-!/download/bundle/README.md
+/release
 
