@@ -7,6 +7,7 @@ fi;
 
 PROJECT_ROOT=$(cd "$(dirname "$(readlink -f "$0")")/../"; pwd);
 LYCHEEJS_FERTILIZER="$LYCHEEJS_ROOT/libraries/fertilizer/bin/fertilizer.sh";
+LYCHEEJS_HELPER="$LYCHEEJS_ROOT/bin/helper.sh";
 
 
 if [ -e "$LYCHEEJS_FERTILIZER" ]; then
@@ -72,6 +73,9 @@ if [ -e "$LYCHEEJS_FERTILIZER" ]; then
 	# XXX: Website
 
 	cp -R $PROJECT_ROOT/source/* $PROJECT_ROOT/build/;
+
+	cd $PROJECT_ROOT;
+	"$LYCHEEJS_HELPER" env:node ./bin/build.js;
 
 	echo "SUCCESS";
 	exit 0;
