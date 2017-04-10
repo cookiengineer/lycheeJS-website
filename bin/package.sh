@@ -27,7 +27,8 @@ if [ -d $PROJECT_ROOT/build ]; then
 	git checkout master;
 	sed -i 's|2[0-9][0-9][0-9]-Q[1-4]|'$LYCHEEJS_VERSION'|g' ./README.md;
 
-	if [ `git diff` != "" ]; then
+	has_diff=`git diff`;
+	if [ "$has_diff" != "" ]; then
 		git add ./README.md;
 		git commit -m ":construction: lychee.js Website $LYCHEEJS_VERSION CI build :construction:";
 	fi;
