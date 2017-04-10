@@ -11,6 +11,7 @@ if [ -d $PROJECT_ROOT/build ]; then
 
 	cd $PROJECT_ROOT/build;
 	echo "lychee.js.org" > $PROJECT_ROOT/build/CNAME;
+	sed -i 's|2[0-9][0-9][0-9]-Q[1-4]|'$LYCHEEJS_VERSION'|g' $PROJECT_ROOT/build/examples.html;
 
 	rm -rf ./.git;
 	git init;
