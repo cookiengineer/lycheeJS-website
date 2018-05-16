@@ -4,6 +4,8 @@
 LYCHEEJS_ROOT="/opt/lycheejs";
 LYCHEEJS_BRANCH="development";
 GIT_BIN=`which git`;
+CURL_BIN=`which curl`;
+UNZIP_BIN=`which unzip`;
 
 
 if [ "$USER" != "root" ]; then
@@ -17,11 +19,33 @@ if [ "$USER" != "root" ]; then
 
 fi;
 
+if [ "$CURL_BIN" == "" ]; then
+
+	echo -e "\e[37m\e[41m";
+	echo " (E) No curl found.                                ";
+	echo "     Please install curl with the package manager. ";
+	echo -e "\e[0m";
+
+	exit 1;
+
+fi;
+
 if [ "$GIT_BIN" == "" ]; then
 
 	echo -e "\e[37m\e[41m";
 	echo " (E) No git found.                                ";
 	echo "     Please install git with the package manager. ";
+	echo -e "\e[0m";
+
+	exit 1;
+
+fi;
+
+if [ "$UNZIP_BIN" == "" ]; then
+
+	echo -e "\e[37m\e[41m";
+	echo " (E) No unzip found.                                ";
+	echo "     Please install unzip with the package manager. ";
 	echo -e "\e[0m";
 
 	exit 1;
@@ -99,7 +123,7 @@ if [ "$DOWNLOAD_URL" != "" ]; then
 	DOWNLOAD_SUCCESS=1;
 
 	cd $LYCHEEJS_ROOT/bin;
-	curl -SL --progress-bar $DOWNLOAD_URL > $LYCHEEJS_ROOT/bin/runtime.zip;
+	curl -SL -C --progress-bar $DOWNLOAD_URL > $LYCHEEJS_ROOT/bin/runtime.zip;
 
 	if [ $? != 0 ]; then
 		DOWNLOAD_SUCCESS=0;
