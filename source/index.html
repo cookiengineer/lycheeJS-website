@@ -15,6 +15,7 @@
 
 		<!-- DESIGN -->
 		<link rel="stylesheet" href="./design/index.css">
+		<script src="./design/index.js"></script>
 
 	</head>
 	<body>
@@ -44,8 +45,12 @@
 			</p>
 			<p>
 				The Net Installer supports OSX (brew and macports), Arch Linux,
-				Debian, Ubuntu, Fedora, Red Hat, openSUSE, CentOS, FreeBSD and
-				OpenBSD. Supported architectures are ARM, x86 and x86_64.
+				Alpine Linux, Debian, Ubuntu, Fedora, Red Hat, openSUSE, CentOS,
+				FreeBSD, NetBSD and Termux.
+			</p>
+			<p>
+				Supported architectures are ARM, x86 and x86_64. Note that some
+				runtimes are not (yet) shipped for ARM 64.
 			</p>
 			<pre><code># This will install lychee.js into /opt/lycheejs
 
@@ -61,17 +66,6 @@ sudo bash -c "$(curl -fsSL https://lychee.js.org/install.sh)";</code></pre>
 		</article>
 
 		<article>
-			<h3>lychee.js Bot Install</h3>
-			<p>
-				It is also possible to install the lychee.js Engine on a Bot
-				Machine (best for up-to-date Unices and systemd).
-			</p>
-			<pre><code># This will install lychee.js into /opt/lycheejs
-
-sudo bash -c "$(curl -fsSL https://lychee.js.org/install-bot.sh)";</code></pre>
-		</article>
-
-		<article>
 			<h3>What is lychee.js?</h3>
 			<p>
 				The lychee.js Engine is a peer-to-peer self-improving
@@ -84,7 +78,7 @@ sudo bash -c "$(curl -fsSL https://lychee.js.org/install-bot.sh)";</code></pre>
 				possible way.
 			</p>
 			<p>
-				The language used is only ES2016+. Its unique platform
+				The language used is only ES2018+. Its unique platform
 				adapters concept allows cross-compilation to pretty much
 				any platform there is; from Arduinos and Satellites to
 				R/C cars and Desktop, Server or Router systems.
@@ -110,19 +104,19 @@ sudo bash -c "$(curl -fsSL https://lychee.js.org/install-bot.sh)";</code></pre>
 				cars, take part in the Starcraft AI competition,
 				automate homes, drive real race cars, automate network
 				traffic, scrape and learn from wikipedia, exchange
-				knowledge with other AIs or just analyze and learn from
-				user instructions in applications.
+				knowledge with other AIs or able to just analyze and
+				learn from user instructions in applications.
 			</p>
 			<p>
 				Here is the selected list of features that the upstream
-				lychee.js Project itself is able to deliver; excluding
+				lychee.js Engine itself is able to deliver; excluding
 				learned behaviours and features of third-party libraries
 				and projects:
 			</p>
 			<h4>lychee.js Core and Definition System</h4>
 			<ul>
 				<li>Isomorphic Application Engine (runs pretty much everywhere)</li>
-				<li>Language is only ES2016+ Code, nothing else</li>
+				<li>Language is only ES2018+ Code, nothing else</li>
 				<li>Composite Pattern inspired Entity/Component System</li>
 				<li>Definition System embraces Simplicity and Feature Detection</li>
 				<li>Sandboxing System embraces automated Error Reports, Analytics and Debugging</li>
@@ -134,6 +128,7 @@ sudo bash -c "$(curl -fsSL https://lychee.js.org/install-bot.sh)";</code></pre>
 			<ul>
 				<li>Graphical Asset/Entity/Scene Design Tool (<a href="https://github.com/Artificial-Engineering/lycheejs-guide/blob/master/software-bots/lycheejs-studio.md" target="_blank">lychee.js Studio</a>)</li>
 				<li>Graphical Server Management Tool (<a href="https://github.com/Artificial-Engineering/lycheejs-guide/blob/master/software-bots/lycheejs-ranger.md" target="_blank">lychee.js Ranger</a>)</li>
+				<li>Cross-Platform Compiler Bootstrapping Library (<a href="https://github.com/Artificial-Engineering/lycheejs/tree/development/libraries/crux" target="_blank">lychee.js Crux</a>)</li>
 				<li>Command-Line Continous Integration Server (<a href="https://github.com/Artificial-Engineering/lycheejs-guide/blob/master/software-bots/lycheejs-harvester.md" target="_blank">lychee.js Harvester</a>)</li>
 				<li>Command-Line Wizard for Projects and Libraries (<a href="https://github.com/Artificial-Engineering/lycheejs-guide/blob/master/software-bots/lycheejs-breeder.md" target="_blank">lychee.js Breeder</a>)</li>
 				<li>Command-Line Builder and Cross-Compiler (<a href="https://github.com/Artificial-Engineering/lycheejs-guide/blob/master/software-bots/lycheejs-fertilizer.md" target="_blank">lychee.js Fertilizer</a>)</li>
@@ -168,7 +163,7 @@ sudo bash -c "$(curl -fsSL https://lychee.js.org/install-bot.sh)";</code></pre>
 		</article>
 
 		<footer>
-			<a href="https://lychee.js.org">lychee.js</a> is (c) 2012-2016 by <a href="http://artificial.engineering">Artificial Engineering</a> and released under MIT license.
+			<a href="https://lychee.js.org">lychee.js</a> is (c) 2012-2018 by <a href="http://artificial.engineering">Artificial Engineering</a> and released under dual GPL3/MIT license.
 			<br>
 			Support our libre Bot Cloud via BTC <a href="bitcoin:1CamMuvrFU1QAMebPoDsL3JrioVDoxezY2?amount=0.5&amp;label=lychee.js%20Support">1CamMuvrFU1QAMebPoDsL3JrioVDoxezY2</a>
 		</footer>

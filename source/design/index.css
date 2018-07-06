@@ -324,10 +324,12 @@ article figure {
 	margin: 0px;
 	padding: 16px 16px;
 	background: #1f2726;
+	text-align: center;
 }
 
 article figure > img {
-	display: block;
+	display: inline-block;
+	margin: 0px 16px;
 	max-width: 256px;
 	max-height: 256px;
 	border: 0;
