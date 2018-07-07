@@ -94,7 +94,7 @@ if [ -e "$LYCHEEJS_FERTILIZER" ]; then
 	cp $LYCHEEJS_ROOT/bin/maintenance/do-netinstall.sh $PROJECT_ROOT/build/install.sh;
 
 	cd $PROJECT_ROOT;
-	"$LYCHEEJS_HELPER" env:node ./bin/build.js;
+	bash "$LYCHEEJS_HELPER" env:node ./bin/build.js;
 
 	echo "SUCCESS";
 	exit 0;
