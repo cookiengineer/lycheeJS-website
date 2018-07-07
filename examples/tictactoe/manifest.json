@@ -1,0 +1,17 @@
+{
+	"short_name": "/projects/tictactoe/main",
+	"name": "/projects/tictactoe/main (powered by lychee.js)",
+	"version": "2018-Q2",
+	"display": "standalone",
+	"orientation": "landscape",
+	"icons": [
+		{
+			"src": "icon.png",
+			"sizes": "128x128",
+			"type": "image/png"
+		}
+	],
+	"start_url": "index.html",
+	"theme_color": "#2f3736",
+	"background_color": "#405050"
+}
